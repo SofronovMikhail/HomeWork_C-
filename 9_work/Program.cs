@@ -1,0 +1,15 @@
+﻿Console.Clear();
+Console.Write("Введите кординаты X1: ");
+double X1 = double.Parse(Console.ReadLine());
+Console.Write("Введите кординаты Y1: ");
+double Y1 = double.Parse(Console.ReadLine());
+Console.Write("Введите кординаты Z1: ");
+double Z1 = double.Parse(Console.ReadLine());
+Console.Write("Введите кординаты X2: ");
+double X2 = double.Parse(Console.ReadLine());
+Console.Write("Введите кординаты Y2: ");
+double Y2 = double.Parse(Console.ReadLine());
+Console.Write("Введите кординаты Z2: ");
+double Z2 = double.Parse(Console.ReadLine());
+double S = Math.Sqrt(Math.Pow(X1 - X2, 2) + Math.Pow(Y1 - Y2, 2) + Math.Pow(Z1 - Z2, 2));
+Console.WriteLine($"S = {S:f2}");
