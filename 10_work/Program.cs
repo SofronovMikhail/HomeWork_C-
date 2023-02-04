@@ -6,8 +6,8 @@ int m = n;
 if(n < 0)
 {
 i = n;
-m=-n;
-n=-1;
+m = m * -1;
+n = -1;
 }
 int[] array = new int[m];
 for(int j = 0; i<=n; i++)
