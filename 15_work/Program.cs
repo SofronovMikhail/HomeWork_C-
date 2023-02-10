@@ -11,26 +11,31 @@ int[] Array(string array)
     }
     return res;
 }
-int[] arr = Array(arraySt); 
-Console.WriteLine(String.Join(" ", arr));
+int[] arr1 = Array(arraySt); 
+Console.WriteLine($"[{String.Join(", ", arr1)}]");
 
-int[] Array1(int[] array2)
+int[] Array1(int[] mas)
 {
-    int[] arr = new int[array2.Length / 2];
-    if(array2.Length / 2 == 0){
-    for(int i = 0; i < array2.Length / 2; i++)
+    
+    if(mas.Length%2==0)
     {
-       arr[i] = array2[i] * array2[array2.Length - i];
+        int[] mas1 = new int[mas.Length / 2];
+       for(int i = 0; i < mas1.Length; i++)
+       {
+         mas1[i] = mas[i]*mas[(mas.Length-1)-i]; 
+       }
+    return mas1;
     }
-    }
-    else{
-    for(int i = 0; i < (array2.Length / 2) + 1; i++)
+    else
     {
-       arr[i] = array2[i] * array2[array2.Length - i];
+      int[] mas1 = new int[(mas.Length / 2)+1];  
+      for(int i = 0; i < mas1.Length-1; i++)
+        {
+          mas1[i] = mas[i]*mas[(mas.Length-1)-i];
+        }
+        mas1[mas.Length / 2] = mas[mas.Length / 2];
+    return mas1;
     }
-    }
-    return arr;
 }
-int[] arr1 = Array1(arr);
-Console.WriteLine(String.Join(" ", arr1));
-
+int[] arr2 = Array1(arr1);
+Console.WriteLine($"[{String.Join(", ", arr2)}]");
