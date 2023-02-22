@@ -79,33 +79,3 @@ void Zamena(int d, int[] mass1, int[,] mass2)
         Zamena(i, arr3, array);
     }
 PrintArray(array);  
-
- //void GetArray1(int[,] mass)
-//{
-    //for(int k = 0; k < mass.GetLength(0); k++)
-    //{
-        //for(int s = 0; s < mass.GetLength(1); s++)
-        //{
-            //for(int i = 0; i < mass.GetLength(0); i++)
-            //{
-              //  for(int j = 0; j < mass.GetLength(1) - i - 1; j++)
-              //  {
-                   // if(mass[k,s] < mass[k,j + 1])
-                   // {
-                    //    int el = mass[k,s];
-                    //    mass[k,s] = mass[k,j + 1]; 
-                    //    mass[k,j + 1] = el;
-                   // }
-                    
-               // }
-               
-          // } 
-      // Console.Write($"{mass[k, s]} ");     
-        //}
-       
-// Console.WriteLine();
-    //}
- //}
-//GetArray1(array);
-
-
