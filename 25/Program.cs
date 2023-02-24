@@ -1,6 +1,6 @@
-﻿//Задача 54: 
-//Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы
-//каждой строки двумерноого массива.
+﻿//Задача 56:
+//Задайте прямоугольный двумерный массив.
+//Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
 Console.Clear();
 
@@ -15,6 +15,12 @@ int min = int.Parse(Console.ReadLine());
 
 Console.Write("Введите максимальное значение элемента массива: ");
 int max = int.Parse(Console.ReadLine());
+
+if(rows == columns)
+    {
+        Console.WriteLine("Массив задан не верно");
+        return;
+    }
 
 int[,] GetArray(int m, int n, int minValue, int maxValue)
 {
@@ -44,39 +50,34 @@ void PrintArray(int[,] arr)
 PrintArray(array);
 Console.WriteLine();
 
-void BubleSort(int[] arrSort)
+int [] ArraySum(int[,] mass)
 {
-   for(int i = 0; i < arrSort.Length; i++)
-   {
-      for(int j = 0; j < arrSort.Length - i - 1; j++)
-       {
-            if(arrSort[j] < arrSort[j + 1])
-           {
-                int el = arrSort[j];
-                arrSort[j] = arrSort[j + 1]; 
-               arrSort[j + 1] = el;
-            }
-       }
-    }
-}
-
-void Zamena(int d, int[] mass1, int[,] mass2)
-{
-    for(int k = 0; k < mass1.Length; k++)
-    {
-        mass2[d, k] = mass1[k];
-    }
-}
-
- int[] arr3 = new int[array.GetLength(1)];
-    for(int i = 0; i < array.GetLength(0); i++)
-    {
-        for(int j = 0; j < array.GetLength(1); j++)
+    int[] arraySum = new int[mass.GetLength(0)];
+    for(int i = 0; i < mass.GetLength(0); i++)
+    {   int sum = 0;
+        for(int j = 0; j < mass.GetLength(1); j++)
         {
-            arr3[j] = array[i,j];
+           sum += mass[i,j]; 
         }
-        BubleSort(arr3);
-        Zamena(i, arr3, array);
+        arraySum[i] = sum;
     }
-PrintArray(array);  
+    return arraySum;
+}
+int[] sumMass = ArraySum(array);
+Console.WriteLine($"{String.Join(" ", sumMass)}");
 
+void MinSumRows(int[] sumMass1)
+{   
+    int j = 0;
+    int min = sumMass1[j];
+    for(int i = 1; i < sumMass1.Length; i++)
+   {
+        if(min > sumMass1[i])
+        {
+           min = sumMass1[i];
+            j=i;
+        }
+   } 
+   Console.WriteLine($"Строка с минимальной суммой элементов = {j+1}");    
+}
+MinSumRows(sumMass);
